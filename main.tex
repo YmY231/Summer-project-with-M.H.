@@ -1,0 +1,206 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+
+\title{Summer Project 2022 Group 4(a)}
+\author{Muyuan Yao, Zhiming Fan, Bo Ying}
+\date{June to September 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{ODEs}
+\subsection{4a}
+\begin{align*}
+    \frac{dx}{dt}&=x\left(\frac{nx}{\theta+x}-\delta-\frac{x}{k}\right)-\frac{mxy}{ax+by+c}\\
+    \\
+    \frac{dy}{dt}&=\frac{emxy}{ax+by+c}-dy-hy^{2}
+\end{align*}
+
+\subsection{4b}
+\begin{align*}
+    \frac{dx}{dt}&=x\left(\frac{nx}{\theta+x}-\delta-\frac{x}{k}\right)-\frac{mxy}{ax+by+c}\\
+    \\
+    \frac{dy}{dt}&=\frac{emxy}{ax+by+c}-dy   
+\end{align*}
+
+\section{Equilibrium}
+\subsection{4a}
+\noindent
+$
+        E_{0}=(0,0)\\
+        \\
+        E_{1}=(0,-\frac{d}{h}) \text{(Which may be excluded: See section 3)}\\
+        \\
+        E_{2}=\left(\frac{k\,n}{2}-\frac{\delta \,k}{2}-\frac{\theta }{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2},0\right)\\
+        \\
+        E_{3}=(\frac{k\,n}{2}-\frac{\delta \,k}{2}-\frac{\theta }{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2},0)\\
+$
+\par Since it is quite confusing to output the later five points($E_{4}$ to $E_{8}$) via long and verbose formulas, we provide the polynomial function from which the five solutions come:
+\begin{align*}
+    P(x)=\sum_{i=0}^{7}a_{i}x^{i}
+\end{align*}
+where the coefficients $a_{i}$'s are:
+\begin{align*}
+    a_{0}=&-h\,c^2\,\delta ^2\,k^3\,\theta ^3+b\,d\,c\,\delta ^2\,k^3\,\theta ^3+d\,m\,c\,\delta \,k^3\,\theta ^3\\
+    a_{1}=&-e\,b^2\,\delta ^3\,k^3\,\theta ^3+3\,d\,b\,c\,\delta ^2\,k^3\,\theta ^2-2\,d\,n\,b\,c\,\delta \,k^3\,\theta ^2+2\,d\,b\,c\,\delta \,k^2\,\theta ^3-2\,e\,b\,\delta ^2\,k^3\,m\,\theta ^3+a\,d\,b\,\delta ^2\,k^3\,\theta ^3\\
+    &-3\,h\,c^2\,\delta ^2\,k^3\,\theta ^2+2\,h\,n\,c^2\,\delta \,k^3\,\theta ^2-2\,h\,c^2\,\delta \,k^2\,\theta ^3-2\,a\,h\,c\,\delta ^2\,k^3\,\theta ^3+3\,d\,c\,\delta \,k^3\,m\,\theta ^2\\
+    &-d\,n\,c\,k^3\,m\,\theta ^2+d\,c\,k^2\,m\,\theta ^3-e\,\delta \,k^3\,m^2\,\theta ^3+a\,d\,\delta \,k^3\,m\,\theta ^3\\
+    a_{2}=&-h\,a^2\,\delta ^2\,k^3\,\theta ^3+3\,d\,a\,b\,\delta ^2\,k^3\,\theta ^2-2\,d\,a\,b\,\delta \,k^3\,n\,\theta ^2+2\,d\,a\,b\,\delta \,k^2\,\theta ^3-6\,h\,a\,c\,\delta ^2\,k^3\,\theta ^2+4\,h\,a\,c\,\delta \,k^3\,n\,\theta ^2\\
+    &-4\,h\,a\,c\,\delta \,k^2\,\theta ^3+3\,d\,a\,\delta \,k^3\,m\,\theta ^2-d\,a\,k^3\,m\,n\,\theta ^2+d\,a\,k^2\,m\,\theta ^3-3\,e\,b^2\,\delta ^3\,k^3\,\theta ^2+3\,e\,b^2\,\delta ^2\,k^3\,n\,\theta ^2\\
+    &-3\,e\,b^2\,\delta ^2\,k^2\,\theta ^3+3\,d\,b\,c\,\delta ^2\,k^3\,\theta -4\,d\,b\,c\,\delta \,k^3\,n\,\theta +6\,d\,b\,c\,\delta \,k^2\,\theta ^2+d\,b\,c\,k^3\,n^2\,\theta -2\,d\,b\,c\,k^2\,n\,\theta ^2+d\,b\,c\,k\,\theta ^3\\
+    &-6\,e\,b\,\delta ^2\,k^3\,m\,\theta ^2+4\,e\,b\,\delta \,k^3\,m\,n\,\theta ^2-4\,e\,b\,\delta \,k^2\,m\,\theta ^3-3\,h\,c^2\,\delta ^2\,k^3\,\theta +4\,h\,c^2\,\delta \,k^3\,n\,\theta -6\,h\,c^2\,\delta \,k^2\,\theta ^2\\
+    &-h\,c^2\,k^3\,n^2\,\theta +2\,h\,c^2\,k^2\,n\,\theta ^2-h\,c^2\,k\,\theta ^3+3\,d\,c\,\delta \,k^3\,m\,\theta -2\,d\,c\,k^3\,m\,n\,\theta +3\,d\,c\,k^2\,m\,\theta ^2-3\,e\,\delta \,k^3\,m^2\,\theta ^2\\
+    &+e\,k^3\,m^2\,n\,\theta ^2-e\,k^2\,m^2\,\theta ^3\\
+    a_{3}=&-3\,h\,a^2\,\delta ^2\,k^3\,\theta ^2+2\,h\,a^2\,\delta \,k^3\,n\,\theta ^2-2\,h\,a^2\,\delta \,k^2\,\theta ^3+3\,d\,a\,b\,\delta ^2\,k^3\,\theta -4\,d\,a\,b\,\delta \,k^3\,n\,\theta +6\,d\,a\,b\,\delta \,k^2\,\theta ^2\\
+    &+d\,a\,b\,k^3\,n^2\,\theta -2\,d\,a\,b\,k^2\,n\,\theta ^2+d\,a\,b\,k\,\theta ^3-6\,h\,a\,c\,\delta ^2\,k^3\,\theta +8\,h\,a\,c\,\delta \,k^3\,n\,\theta -12\,h\,a\,c\,\delta \,k^2\,\theta ^2-2\,h\,a\,c\,k^3\,n^2\,\theta \\
+    &+4\,h\,a\,c\,k^2\,n\,\theta ^2-2\,h\,a\,c\,k\,\theta ^3+3\,d\,a\,\delta \,k^3\,m\,\theta -2\,d\,a\,k^3\,m\,n\,\theta +3\,d\,a\,k^2\,m\,\theta ^2-3\,e\,b^2\,\delta ^3\,k^3\,\theta +6\,e\,b^2\,\delta ^2\,k^3\,n\,\theta \\
+    &-9\,e\,b^2\,\delta ^2\,k^2\,\theta ^2-3\,e\,b^2\,\delta \,k^3\,n^2\,\theta +6\,e\,b^2\,\delta \,k^2\,n\,\theta ^2-3\,e\,b^2\,\delta \,k\,\theta ^3+d\,b\,c\,\delta ^2\,k^3-2\,d\,b\,c\,\delta \,k^3\,n+6\,d\,b\,c\,\delta \,k^2\,\theta \\
+    &+d\,b\,c\,k^3\,n^2-4\,d\,b\,c\,k^2\,n\,\theta +3\,d\,b\,c\,k\,\theta ^2-6\,e\,b\,\delta ^2\,k^3\,m\,\theta +8\,e\,b\,\delta \,k^3\,m\,n\,\theta -12\,e\,b\,\delta \,k^2\,m\,\theta ^2-2\,e\,b\,k^3\,m\,n^2\,\theta \\
+    &+4\,e\,b\,k^2\,m\,n\,\theta ^2-2\,e\,b\,k\,m\,\theta ^3-h\,c^2\,\delta ^2\,k^3+2\,h\,c^2\,\delta \,k^3\,n-6\,h\,c^2\,\delta \,k^2\,\theta -h\,c^2\,k^3\,n^2+4\,h\,c^2\,k^2\,n\,\theta \\
+    &-3\,h\,c^2\,k\,\theta ^2+d\,c\,\delta \,k^3\,m-d\,c\,k^3\,m\,n+3\,d\,c\,k^2\,m\,\theta -3\,e\,\delta \,k^3\,m^2\,\theta +2\,e\,k^3\,m^2\,n\,\theta -3\,e\,k^2\,m^2\,\theta ^2\\
+    a_{4}=&-3\,h\,a^2\,\delta ^2\,k^3\,\theta +4\,h\,a^2\,\delta \,k^3\,n\,\theta -6\,h\,a^2\,\delta \,k^2\,\theta ^2-h\,a^2\,k^3\,n^2\,\theta +2\,h\,a^2\,k^2\,n\,\theta ^2-h\,a^2\,k\,\theta ^3+d\,a\,b\,\delta ^2\,k^3\\
+    &-2\,d\,a\,b\,\delta \,k^3\,n+6\,d\,a\,b\,\delta \,k^2\,\theta +d\,a\,b\,k^3\,n^2-4\,d\,a\,b\,k^2\,n\,\theta +3\,d\,a\,b\,k\,\theta ^2-2\,h\,a\,c\,\delta ^2\,k^3+4\,h\,a\,c\,\delta \,k^3\,n\\
+    &-12\,h\,a\,c\,\delta \,k^2\,\theta -2\,h\,a\,c\,k^3\,n^2+8\,h\,a\,c\,k^2\,n\,\theta -6\,h\,a\,c\,k\,\theta ^2+d\,a\,\delta \,k^3\,m-d\,a\,k^3\,m\,n+3\,d\,a\,k^2\,m\,\theta \\
+    &-e\,b^2\,\delta ^3\,k^3+3\,e\,b^2\,\delta ^2\,k^3\,n-9\,e\,b^2\,\delta ^2\,k^2\,\theta -3\,e\,b^2\,\delta \,k^3\,n^2+12\,e\,b^2\,\delta \,k^2\,n\,\theta -9\,e\,b^2\,\delta \,k\,\theta ^2+e\,b^2\,k^3\,n^3\\
+    &-3\,e\,b^2\,k^2\,n^2\,\theta +3\,e\,b^2\,k\,n\,\theta ^2-e\,b^2\,\theta ^3+2\,d\,b\,c\,\delta \,k^2-2\,d\,b\,c\,k^2\,n+3\,d\,b\,c\,k\,\theta -2\,e\,b\,\delta ^2\,k^3\,m+4\,e\,b\,\delta \,k^3\,m\,n\\
+    &-12\,e\,b\,\delta \,k^2\,m\,\theta -2\,e\,b\,k^3\,m\,n^2+8\,e\,b\,k^2\,m\,n\,\theta -6\,e\,b\,k\,m\,\theta ^2-2\,h\,c^2\,\delta \,k^2+2\,h\,c^2\,k^2\,n-3\,h\,c^2\,k\,\theta \\
+    &+d\,c\,k^2\,m-e\,\delta \,k^3\,m^2+e\,k^3\,m^2\,n-3\,e\,k^2\,m^2\,\theta \\
+    a_{5}=&-h\,a^2\,\delta ^2\,k^3+2\,h\,a^2\,\delta \,k^3\,n-6\,h\,a^2\,\delta \,k^2\,\theta -h\,a^2\,k^3\,n^2+4\,h\,a^2\,k^2\,n\,\theta -3\,h\,a^2\,k\,\theta ^2+2\,d\,a\,b\,\delta \,k^2\\
+    &-2\,d\,a\,b\,k^2\,n+3\,d\,a\,b\,k\,\theta -4\,h\,a\,c\,\delta \,k^2+4\,h\,a\,c\,k^2\,n-6\,h\,a\,c\,k\,\theta +d\,a\,k^2\,m-3\,e\,b^2\,\delta ^2\,k^2+6\,e\,b^2\,\delta \,k^2\,n\\
+    &-9\,e\,b^2\,\delta \,k\,\theta -3\,e\,b^2\,k^2\,n^2+6\,e\,b^2\,k\,n\,\theta -3\,e\,b^2\,\theta ^2+d\,b\,c\,k-4\,e\,b\,\delta \,k^2\,m+4\,e\,b\,k^2\,m\,n-6\,e\,b\,k\,m\,\theta \\
+    &-h\,c^2\,k-e\,k^2\,m^2\\
+    a_{6}=&\,3\,b^2\,e\,k\,n-3\,b^2\,\delta \,e\,k-3\,b^2\,e\,\theta -3\,a^2\,h\,k\,\theta -2\,a^2\,\delta \,h\,k^2+2\,a^2\,h\,k^2\,n+a\,b\,d\,k-2\,a\,c\,h\,k-2\,b\,e\,k\,m\\
+    a_{7}=&-h\,k\,a^2-e\,b^2
+\end{align*}
+\par The $P(x)$ has a degree of 7, but we only have 5 solutions in $\mathbb{R}$, which means there must exist 2 roots in $(\mathbb{C}-\mathbb{R})$.
+
+\section{Analysis of Stability}
+\subsection{Jacobian}
+\noindent
+J=
+$
+\left(\begin{array}{cc}
+\frac{n\,x}{\theta +x}-x\,\left(\frac{1}{k}-\frac{n}{\theta +x}+\frac{n\,x}{{\left(\theta +x\right)}^2}\right)-\frac{x}{k}-\frac{m\,y}{c+a\,x+b\,y}-\delta +\frac{a\,m\,x\,y}{{\left(c+a\,x+b\,y\right)}^2} & \frac{b\,m\,x\,y}{{\left(c+a\,x+b\,y\right)}^2}-\frac{m\,x}{c+a\,x+b\,y}\\ \frac{e\,m\,y}{c+a\,x+b\,y}-\frac{a\,e\,m\,x\,y}{{\left(c+a\,x+b\,y\right)}^2} & \frac{e\,m\,x}{c+a\,x+b\,y}-2\,h\,y-d-\frac{b\,e\,m\,x\,y}{{\left(c+a\,x+b\,y\right)}^2}
+\end{array}\right)
+$
+\\\\\\
+$
+J_{0}=\left(\begin{array}{cc} -\delta  & 0\\ 0 & -d \end{array}\right)\\
+\\\\
+J_{1}=\left(\begin{array}{cc} \frac{d\,m}{h\,\left(c-\frac{b\,d}{h}\right)}-\delta  & 0\\ -\frac{d\,e\,m}{h\,\left(c-\frac{b\,d}{h}\right)} & d \end{array}\right)\\
+\\\\
+J_{2}=\left(\begin{array}{cc} j_{21} & \frac{m\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}{c-a\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}\\ 0 & -d-\frac{e\,m\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}{c-a\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)} \end{array}\right)\\
+$
+Where\\\\
+$
+j_{21} = \frac{\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}}{k}\\
+-\left(\frac{n}{\frac{\theta }{2}-\frac{\delta \,k}{2}+\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}}-\frac{1}{k}+\frac{n\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}{{\left(\frac{\theta }{2}-\frac{\delta \,k}{2}+\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}^2}\right)\\
+\cdot\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)-\delta -\frac{n\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}{\frac{\theta }{2}-\frac{\delta \,k}{2}+\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}}
+$
+\\\\\\\\
+$
+J_{3}=\left(\begin{array}{cc} j_{31} & \frac{m\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}{c-a\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}\\ 0 & -d-\frac{e\,m\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}{c-a\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)} \end{array}\right)\\
+$
+\\\\\\\\\\
+Where\\\\
+$
+j_{31} = \frac{\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}}{k}\\
+-\left(\frac{n}{\frac{\theta }{2}-\frac{\delta \,k}{2}+\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}}-\frac{1}{k}+\frac{n\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}{{\left(\frac{\theta }{2}-\frac{\delta \,k}{2}+\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}^2}\right)\\
+\cdot\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)-\delta -\frac{n\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}{\frac{\theta }{2}-\frac{\delta \,k}{2}+\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}}
+$\\
+\par Note that we do not simplify those expressions here by substitutions since we will \textit{not} actually deal with the Jacobian matrices, but their eigenvalues, which can be obtained via Matlab.
+\subsection{eigenvalues}
+\noindent
+$
+Ei_{0}=\left\{ -d , -\delta  \right\}\\
+\\\\
+Ei_{1}=\left\{ d , \frac{d\,m}{h\,\left(c-\frac{b\,d}{h}\right)}-\delta  \right\}\\
+\\\\\\
+Ei_{2}=\{ei_{1},ei_{2}\}\\
+\\
+ei_{1}=-d-\frac{e\,m\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}{c-a\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}\\ 
+\\\\
+ei_{2}=\frac{\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}}{k}-\\
+\left(\frac{n}{\frac{\theta }{2}-\frac{\delta \,k}{2}+\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}}-\frac{1}{k}+\frac{n\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}{{\left(\frac{\theta }{2}-\frac{\delta \,k}{2}+\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}^2}\right)\,\cdot\\
+\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)-\delta -\frac{n\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}{\frac{\theta }{2}-\frac{\delta \,k}{2}+\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}} 
+\\\\\\\\
+Ei_{3}=\{ei_{3},ei_{4}\}\\
+\\
+ei_{3}=-d-\frac{e\,m\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}{c-a\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}\\ 
+\\\\\\
+ei_{4}=\frac{\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}}{k}-\\
+\left(\frac{n}{\frac{\theta }{2}-\frac{\delta \,k}{2}+\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}}-\frac{1}{k}+\frac{n\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}{{\left(\frac{\theta }{2}-\frac{\delta \,k}{2}+\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}^2}\right)\,\cdot\\
+\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)-\delta -\frac{n\,\left(\frac{\theta }{2}+\frac{\delta \,k}{2}-\frac{k\,n}{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}\right)}{\frac{\theta }{2}-\frac{\delta \,k}{2}+\frac{k\,n}{2}+\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}} \\
+$\\
+
+\subsubsection{The behaviour of the system around $E_{0}(0,0)$}
+Let $J_{0}$ be the Jacobian matrix of the system 4a at equilibrium
+point $E_{0}$, then its eigenvalues are $-d$ and $-\delta$. Since both eigenvalues are 
+strictly negative, we draw the following conclusion:
+\begin{center}
+    \textit{$E_{0}(0,0)$ is always locally asymptotically stable.}
+\end{center}
+\par Then we discuss the global stability of $E_{0}$. Let 
+$\mathbb{R}^{2}_{+\mathbb{X}}=[(x,y)\in \mathbb{R}^{2}: x>0, y\geq 0]$ and 
+consider the Lyapunov function 
+$L_{0}:\mathbb{R}^{2}\rightarrow \mathbb{R}$,
+\begin{equation}
+    V(x,y)=\frac{1}{2}(ex+y)^{2}\tag{4a.0}
+\end{equation}
+Note that $V(0,0)=0$ and $V(x,y)>0$ in any neighbourhood of the point $E_{0}(0,0)$. Morever, we have:
+\begin{align*}
+    \frac{dV}{dt}&=-(ex+y)(hy^{2}+dy-\frac{emxy}{ax+by+c})-e(ex+y)\left(x(\delta+\frac{x}{k}-\frac{nx}{\theta+k})+\frac{mxy}{ax+by+c}\right)\\
+    &=-(ex+y)(hy^{2}+dy)-\frac{ex(ex+y)}{k(x+\theta)}\left(x^{2}+(\delta k+\theta-kn)x+\delta k\theta\right)\\
+    &\leq 0,\quad if \left(x^{2}+(\delta k+\theta-kn)x+\delta k\theta\right)\geq 0.
+\end{align*}
+Then we discuss the sign of the function $f(x)=\left(x^{2}+(\delta k+\theta-kn)x+\delta k\theta\right)$.\\
+On the one hand, if $\delta k+\theta-kn\leq 0$, i.e., $k\geq \frac{\theta}{n-\delta}$, then $f(x)\geq 0$ will always hold since $f(0)=\delta k\theta$ is always greater than 0.\\
+On the other hand, if $\delta k+\theta-kn\geq 0$, i.e., $n<\delta$ or $(n>\delta)\wedge (k<\frac{\theta}{n-\delta})$, then $f(x)\geq 0$ will always hold if the determinant of $f(x)$ such that $\Delta<0$.
+\par Therefore, the proof follows from the Lyapunov–LaSalle’s invariance principle.\\
+
+\subsubsection{The behaviour of the system around $E_{1}(0,-\frac{d}{h})$}
+Let $J_{1}$ be the Jacobian matrix of the system 4a at equilibrium
+point $E_{1}$, then its eigenvalues are $d$ and $\frac{d\,m}{h\,\left(c-\frac{b\,d}{h}\right)}-\delta$. 
+Since there is an eigenvalue $d$ which is always positive, the system is always unstable 
+around $E_{1}$. More precisely, $E_{1}$ is a saddle point if $m<\frac{\delta\,h\,\left(c-\frac{b\,d}{h}\right)}{d}$;
+$E_{1}$ is a node if $m>\frac{\delta\,h\,\left(c-\frac{b\,d}{h}\right)}{d}$.
+\par \textbf{However}, the equilibrium point $E_{1}$ is meaningless under the \textbf{practical biologic conditions} that both $x$ and $y$ must be positive or at least, greater or equal to $0$, i.e., the number of predator or prey cannot be a negative value. Thus, we may exclude $E_{1}$.\\
+
+\subsubsection{The behaviour of the system around $E_{2}$ and $E_{3}$}
+\par To make the article more clear, some substitutions are introduced as follows:\\
+\begin{align*}
+    \Delta_{0}&=\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2\\
+    \Delta_{1}&=\frac{\theta }{2}+\left(\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\Delta_{0}}}{2}\right)\\
+    \Delta_{2}&=\frac{\theta }{2}-\left(\frac{\delta \,k}{2}-\frac{k\,n}{2}+\frac{\sqrt{\Delta_{0}}}{2}\right)
+\end{align*}
+\par Thus, the eigenvalues of $E_{2}$ can be written as 
+$
+Ei_{2}=\{ei_{1}=-d-\frac{em\Delta_{1}}{c-a\Delta_{1}},\\
+ei_{2}=\frac{\Delta_{1}}{k}-\left(\frac{n}{\Delta_{2}}-\frac{1}{k}+\frac{n\Delta_{1}}{\Delta_{2}^{2}}\right)\Delta_{1}-\delta-\frac{n\Delta_{1}}{\Delta_{2}}\}
+$.
+We have the following conclusion:
+\begin{center}
+    \textit{$E_{2}$ is locally \textbf{unstable}.\\ Similarly, so as $E_{3}$.}
+\end{center}
+\textbf{Proof.}\\
+\par To make the equilibrium point have a practical meaning, we assume that $\frac{k\,n}{2}-\frac{\delta \,k}{2}-\frac{\theta }{2}-\frac{\sqrt{\delta ^2\,k^2-2\,\delta \,k^2\,n-2\,\delta \,k\,\theta +k^2\,n^2-2\,k\,n\,\theta +\theta ^2}}{2}>0$, which implies that $\frac{kn}{2}>\frac{\delta k+\theta+\sqrt{\Delta_{0}}}{2}$. Thus, we have $\Delta_{1}<\left(\frac{\theta}{2}+\frac{\delta k}{2}+\frac{\sqrt{\Delta_{0}}}{2}\right)-\frac{\delta k+\theta+\sqrt{\Delta_{0}}}{2}=0$; $\Delta_{2}>\left(\frac{\theta}{2}-\frac{\delta k}{2}-\frac{\sqrt{\Delta_{0}}}{2}\right)+\frac{\delta k+\theta+\sqrt{\Delta_{0}}}{2}=\theta>0$.
+\par For all $\Delta_{0} \geq 0$, then $\Delta_{1}, \Delta_{2}\in \mathbb{R}$, which implies that $ei_{1},ei_{2}\in \mathbb{R}$. Therefore, $E_{2}$ is locally stable if $ei_{1}<0$ and $ei_{2}<0$. For $ei_{1}$, $ei_{1}<0\Leftrightarrow m<\frac{-d(c-a\Delta_{1})}{e\Delta_{1}}$. For $ei_{2}$, we rewrite it into $ei_{2}=-n\left(\frac{\Delta_{1}}{\Delta_{2}}\right)^2-2n\left(\frac{\Delta_{1}}{\Delta_{2}}\right)+\frac{2\Delta_{1}}{k}-\delta$. Let $t=\frac{\Delta_{1}}{\Delta_{2}}$ and $ei_{2}=f(t)=-n^{2}t-2nt+\frac{2\Delta_{1}}{k}-\delta$ such that $t<0$. Since $-n<0$ and $-\frac{-2n}{2(-n)}=-1<0$, to make $ei_{2}<0$, we need to make the determinant of $f(t)$ less than 0, i.e., $\Delta=(-2n)^{2}-4(-n)(\frac{2\Delta_{1}}{k}-\delta)<0 \Leftrightarrow 4n(n+\frac{2\Delta_{1}}{k}-\delta)<0$. However, $n+\frac{2\Delta_{1}}{k}-\delta = n+(\frac{\theta}{k}+\delta-n+\frac{\sqrt{\Delta_{0}}}{k})-\delta = \frac{\theta}{k}+\frac{\sqrt{\Delta_{0}}}{k} > 0$. That is, the determinant cannot be negative, so, the two eigenvalues cannot always be both negative.
+\par By the homogeneity of the two equilibrium points, $E_{3}$ is always unstable as well.\\
+
+\section{Numerical Solutions}
+We produced the numerical solutions of the point $E_{2}$ as well as $E_{3}$ which are remain fruitless. We use the Matlab script with the parameters introduced in the article 'Mainul MB 2011'. The following figure shows the result of $E_{2}$.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.4]{numerical.jpg}
+    \caption{Numerical Solution of $E_{2}$}
+\end{figure}
+
+In this graph, its Prey(u) is our x, its Predator(v) is our y in the ODEs. The figure show that the solutions converge to the point $(1,0)$.
+
+\end{document}
